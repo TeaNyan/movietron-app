@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movietron ([View Demo](https://movietron.vercel.app))
 
-## Getting Started
+Movietron is a Next.js application that displays a list of movies fetched from the OMDB API. The application features infinite scrolling, search functionality, and detailed movie views. The project is styled to fit a Star Wars theme with a starry background, and it uses URL-friendly slugs for movie titles combined with IMDb IDs.
 
-First, run the development server:
+## Motivation
+
+This project was created as an example for a take-home task I made for the people I interviewed for front-end position. It demonstrates the use of Next.js, Tailwind CSS, and TypeScript to build a fully functional web application with modern web development practices.
+
+## Features
+
+- **Home Page**: Displays a list of movies fetched from the OMDB API.
+- **Infinite Scrolling**: Automatically loads more movies as you scroll down.
+- **Search Functionality**: Allows users to search for movies by title.
+- **Movie Detail Page**: Shows detailed information about a selected movie.
+- **Star Wars Theme**: Starry background and themed colors.
+- **SEO-friendly URLs**: Uses movie title slugs combined with IMDb IDs in URLs.
+
+## Technologies Used
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **TypeScript**: For type safety and enhanced development experience.
+- **State Management**: React hooks.
+- **API Integration**: [OMDB API](http://www.omdbapi.com/)
+- **Routing**: Next.js dynamic routing.
+
+## Installation
+
+**1. Clone the repository:**
+```bash
+ git clone https://github.com/your-username/movietron.git
+ cd movietron
+ ```
+**2. Install dependencies:**
+
+```bash
+npm install
+```
+
+
+**3. Configure the API key in next.config.mjs:**
+
+```javascript
+// next.config.mjs
+export default {
+  reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_OMDB_API_KEY: 'your_omdb_api_key',
+  },
+};
+```
+**4. Run the development server:**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**API Key**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+*The application uses the OMDB API. To set your own API key, configure it in next.config.mjs:*
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```javascript
+// next.config.mjs
+export default {
+  reactStrictMode: true,
+  env: {
+    NEXT_PUBLIC_OMDB_API_KEY: 'your_omdb_api_key',
+  },
+};
+```
 
-## Learn More
+## Customization
+**Star Wars Theme**
 
-To learn more about Next.js, take a look at the following resources:
+The application is styled with a Star Wars theme using Tailwind CSS. You can customize the colors and background in the tailwind.config.js and globals.css files.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License.
