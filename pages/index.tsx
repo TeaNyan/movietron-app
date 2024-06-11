@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { fetchMovies } from "../lib/api";
-import Header from "../components/Header";
-import MovieCard from "../components/MovieCard";
+import Header from "@/components/Header";
+import MovieCard from "@/components/MovieCard";
 import { useRouter } from "next/router";
+import Spinner from "@/components/Spinner";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -59,7 +60,7 @@ const Home = () => {
             ))}
           </div>
         )}
-        {loading && <p className="text-center mt-4">Loading...</p>}
+        {loading && <Spinner />}
       </div>
     </div>
   );
