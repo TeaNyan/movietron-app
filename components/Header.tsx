@@ -15,7 +15,7 @@ const Header = () => {
     <header className=" text-sw-light p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <h1 className="text-2xl font-bold">Movietron</h1>
+          <h1 className="text-2xl font-bold text-sw-highlight">Movietron</h1>
         </Link>
         <form onSubmit={handleSearch} className="flex">
           <input
