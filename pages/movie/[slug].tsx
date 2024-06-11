@@ -81,11 +81,21 @@ const MovieDetail = ({ movie }: { movie: any }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { id } = context.params!;
-  const movie = await fetchMovieDetails(id as string);
+  const { slug } = context.params!;
+  if (!slug) {
+    return {
+      notFound: true,
+    };
+  }
+  const imdbID = slug.split("-").slice(-1)[0];
+  const movie = await fetchMovieDetails(imdbID);
+  if (!movie || movie.Response === "False") {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: { movie },
   };
 };
-
 export default MovieDetail;

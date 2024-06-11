@@ -1,3 +1,4 @@
+import { slugify } from "@/lib/slugify";
 import Link from "next/link";
 
 interface MovieCardProps {
@@ -11,8 +12,9 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({ movie, index }) => {
+  const slug = `${slugify(movie.Title)}-${movie.imdbID}`;
   return (
-    <Link key={`${movie.imdbID} + ${index}`} href={`/movie/${movie.imdbID}`}>
+    <Link key={`${movie.imdbID} + ${index}`} href={`/movie/${slug}`}>
       <div className="group border border-sw-dark p-4 rounded hover:bg-sw-highlight w-full h-full flex flex-col text-sw-light">
         <img
           src={movie.Poster}
