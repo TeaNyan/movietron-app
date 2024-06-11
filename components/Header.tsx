@@ -8,7 +8,10 @@ const Header = () => {
 
   const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    router.push(`/?search=${searchTerm}`);
+    const trimmedSearchTerm = searchTerm.trim();
+    if (trimmedSearchTerm) {
+      router.push(`/?search=${encodeURIComponent(trimmedSearchTerm)}`);
+    }
   };
 
   return (
