@@ -87,7 +87,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       notFound: true,
     };
   }
-  const imdbID = slug.split("-").slice(-1)[0];
+  const imdbID = Array.isArray(slug)
+    ? slug[slug.length - 1]
+    : slug.split("-").slice(-1)[0];
   const movie = await fetchMovieDetails(imdbID);
   if (!movie || movie.Response === "False") {
     return {
